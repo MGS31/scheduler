@@ -2,7 +2,6 @@ import React from "react";
 import classNames from "classnames";
 
 import "components/Button.scss";
-import { process_params } from "express/lib/router";
 
 export default function Button(props) {
   const buttonClass = classNames("button", {
