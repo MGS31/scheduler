@@ -14,7 +14,6 @@ export default function DayList(props) {
     );
   })
 
-console.log("Props: ", dayArr)
 
   return(
     <ul>
