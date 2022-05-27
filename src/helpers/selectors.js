@@ -22,6 +22,24 @@ export function getAppointmentsForDay(state, day) {
 return result;
  };
 
+ export function getInterviewersForDay(state, day) {
+  let interviewers = [];
+  let result = [];
+  const days = state.days;
+  for (const elem of days) {
+    if(elem.name === day) {
+      interviewers = elem.interviewers;
+    }
+  }
+  for (const inter of interviewers) {
+    if(inter in state.interviewers) {
+      result.push(state.interviewers[inter]);
+    }
+  }
+  console.log(result);
+return result;
+ };
+
  /*
  ensure returning object containts two keys one for student and one for interviewer.
  interviewier should be a nested object with interviewers details included inside.
