@@ -36,7 +36,6 @@ return result;
       result.push(state.interviewers[inter]);
     }
   }
-  console.log(result);
 return result;
  };
 
@@ -59,6 +58,5 @@ return result;
     }
     return result;
   }
-  console.log('Test: ',result);
   return result;
  }
