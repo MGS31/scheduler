@@ -4,59 +4,59 @@ Once we have access to the appointment array for the given day, we'll need to it
 We should also probably do a bit of validation. If there are no appointments on the given day, our days data will be empty. According to our tests, in a case like this, we should return an empty array.
 */
 
-
 export function getAppointmentsForDay(state, day) {
   let appointments = [];
   let result = [];
   const days = state.days;
   for (const elem of days) {
-    if(elem.name === day) {
+    if (elem.name === day) {
       appointments = elem.appointments;
     }
   }
   for (const app of appointments) {
-    if(app in state.appointments) {
+    if (app in state.appointments) {
       result.push(state.appointments[app]);
     }
   }
-return result;
- };
+  return result;
+}
 
- export function getInterviewersForDay(state, day) {
+export function getInterviewersForDay(state, day) {
   let interviewers = [];
   let result = [];
   const days = state.days;
   for (const elem of days) {
-    if(elem.name === day) {
+    if (elem.name === day) {
       interviewers = elem.interviewers;
     }
   }
   for (const inter of interviewers) {
-    if(inter in state.interviewers) {
+    if (inter in state.interviewers) {
       result.push(state.interviewers[inter]);
     }
   }
-return result;
- };
+  return result;
+}
 
- /*
+/*
  ensure returning object containts two keys one for student and one for interviewer.
  interviewier should be a nested object with interviewers details included inside.
  */
 
- export function getInterview(state, interview) {
+export function getInterview(state, interview) {
   let result = {};
-   if(interview === null) {
-     return null;
-   }
+  if (interview === null) {
+    return null;
+  }
   const interviewer = state.interviewers;
   const id = interview.interviewer;
-  if (id in interviewer ){
+  if (id in interviewer) {
     result = {
-      student : interview.student,
-      interviewer: interviewer[id]
-    }
+      student: interview.student,
+      interviewer: interviewer[id],
+    };
     return result;
   }
   return result;
- }
+}
+
