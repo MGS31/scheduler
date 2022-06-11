@@ -5,6 +5,7 @@ import Empty from "./Empty";
 import Form from "./Form";
 import Confirm from "./Confirm";
 import Status from "./Status";
+import Error from "./Error";
 import useVisualMode from "components/Hooks/useVisualMode";
 
 import "components/Appointment/styles.scss";
@@ -53,7 +54,7 @@ export default function Appointment(props) {
   }
 
   return (
-    <article className="appointment">
+    <article className="appointment" data-testid="appointment">
       <Header time={props.time} />
       {mode === EMPTY && <Empty onAdd={() => transition(CREATE)} />}
       {mode === SHOW && (
@@ -74,7 +75,7 @@ export default function Appointment(props) {
         />
       )}
       {mode === SAVING && <Status message="Saving" />}
-      {mode === DELETE && <Status message="Deleteing" />}
+      {mode === DELETE && <Status message="Deleting" />}
       {mode === CONFIRM && (
         <Confirm
           message="Are You Sure You Wan't To Delete?"
@@ -89,6 +90,13 @@ export default function Appointment(props) {
           onSave={save}
           onCancel={() => back()}
         />
+      )}
+      {mode === ERROR_SAVE && (
+        <Error message="Could not save appointment." onClose={back} />
+      )}
+
+      {mode === ERROR_DELETE && (
+        <Error message="Could not cancel appointment." onClose={back} />
       )}
     </article>
   );
