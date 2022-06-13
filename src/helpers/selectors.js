@@ -59,4 +59,3 @@ export function getInterview(state, interview) {
   }
   return result;
 }
-

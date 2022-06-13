@@ -12,7 +12,7 @@ export default function useVisualMode(initial) {
       setMode(event);
     }
   }
-  function back () {
+  function back() {
     if (history.length > 1) {
       const backElement = history.slice(0, history.length - 1);
       setMode(backElement[backElement.length - 1]);
