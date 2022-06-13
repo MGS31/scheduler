@@ -146,6 +146,7 @@ describe("Application", () => {
     ).toBeInTheDocument();
 
     fireEvent.click(getByAltText(appointment, "Close"));
+    fireEvent.click(getByText(appointment, "Cancel"));
     expect(getByAltText(appointment, "Add")).toBeInTheDocument();
   });
 
