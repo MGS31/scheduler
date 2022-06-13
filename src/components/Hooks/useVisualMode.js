@@ -12,13 +12,11 @@ export default function useVisualMode(initial) {
       setMode(event);
     }
   }
-  function back() {
+  function back () {
     if (history.length > 1) {
-      const newHist = history.slice(0, history.length - 1);
-      setHistory(newHist);
-      setMode(newHist[newHist.length - 1]);
-    } else {
-      setMode(history[0]);
+      const backElement = history.slice(0, history.length - 1);
+      setMode(backElement[backElement.length - 1]);
+      history.pop();
     }
   }
 
